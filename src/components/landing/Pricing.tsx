@@ -5,15 +5,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 const tiers = [
   {
     name: "Basic",
-    description: "Essential AI grading tools for educators",
+    description: "Essential grading tools for educators",
     features: [
-      "Automated marking for essays & assignments",
+      "Automated marking for coding, Mathmetical & Text assignments",
       "AI-powered grading with contextual understanding",
-      "Academic integrity checks",
-      "Plagiarism detection",
-      "AI-content identification",
       "Personalized student feedback",
-      "LMS integration (Canvas, D2L, Moodle and more)",
+      "LMS integration (Canvas, D2L, Moodle and more) (Coming Soon)",
     ],
     highlighted: false,
   },
@@ -23,9 +20,7 @@ const tiers = [
     features: [
       "Everything in Base, plus:",
       "Class-level performance analytics",
-      "Student-level progress tracking",
       "Knowledge gap identification",
-      "Trend analysis & reporting",
       "Custom analytics dashboards",
       "Priority support",
     ],
@@ -68,7 +63,7 @@ const Pricing = () => {
               {tier.highlighted && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="accent-gradient text-accent-foreground text-sm font-medium px-4 py-1 rounded-full">
-                    Most Popular
+                    Coming Soon
                   </span>
                 </div>
               )}

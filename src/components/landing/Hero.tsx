@@ -1,6 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, CheckCircle } from "lucide-react";
+import { useEffect, useRef } from "react";
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.intersectionRatio >= 0.5) {
+        videoEl.play().catch(() => {});
+      } else {
+        videoEl.pause();
+      }
+    }, { threshold: [0, 0.5, 1] });
+
+    observer.observe(videoEl);
+    return () => observer.disconnect();
+  }, []);
+
   return <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Decorative Elements */}
       <div className="absolute top-1/4 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl floating" />
@@ -69,73 +88,35 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-primary" />
-              LMS Integration
+              Instructor in Control
             </div>
           </div>
         </div>
 
-        {/* Hero Image/Dashboard Preview */}
+        {/* Hero Video - MarkingLab Demo */}
         <div className="mt-16 max-w-5xl mx-auto animate-fade-in" style={{
         animationDelay: '0.5s'
       }}>
           <div className="relative">
             {/* Glow Effect */}
             <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-3xl" />
-            
-            {/* Dashboard Preview */}
+
+            {/* Demo Video */}
             <div className="relative bg-card rounded-2xl border border-border p-2 shadow-strong">
               <div className="bg-background rounded-xl overflow-hidden">
-                {/* Mock Dashboard Header */}
-                <div className="bg-secondary/50 px-6 py-4 flex items-center gap-3 border-b border-border">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                  </div>
-                  <div className="flex-1 flex justify-center">
-                    <div className="bg-background rounded-lg px-4 py-1.5 text-sm text-muted-foreground">
-                      app.markinglab.com
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Mock Dashboard Content */}
-                <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="col-span-2 space-y-4">
-                    <div className="bg-secondary/30 rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="h-4 w-32 bg-foreground/10 rounded" />
-                        <div className="h-6 w-20 accent-gradient rounded-lg" />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="h-3 w-full bg-foreground/5 rounded" />
-                        <div className="h-3 w-4/5 bg-foreground/5 rounded" />
-                        <div className="h-3 w-3/5 bg-foreground/5 rounded" />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-secondary/30 rounded-lg p-4">
-                        <div className="h-4 w-24 bg-foreground/10 rounded mb-2" />
-                        <div className="h-8 w-16 bg-accent/30 rounded" />
-                      </div>
-                      <div className="bg-secondary/30 rounded-lg p-4">
-                        <div className="h-4 w-24 bg-foreground/10 rounded mb-2" />
-                        <div className="h-8 w-16 bg-accent/30 rounded" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-secondary/30 rounded-lg p-4">
-                    <div className="h-4 w-20 bg-foreground/10 rounded mb-4" />
-                    <div className="space-y-3">
-                      {[1, 2, 3, 4].map(i => <div key={i} className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-foreground/10" />
-                          <div className="flex-1">
-                            <div className="h-3 w-full bg-foreground/5 rounded" />
-                          </div>
-                        </div>)}
-                    </div>
-                  </div>
-                </div>
+                <video
+                  ref={videoRef}
+                  className="w-full h-auto rounded-xl"
+                  src="/videos/markinglab-demo.mp4"
+                  muted
+                  loop
+                  controls
+                  playsInline
+                  preload="auto"
+                  poster="/placeholder.svg"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
