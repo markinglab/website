@@ -4,7 +4,7 @@ const features = [
   {
     icon: Brain,
     title: "Intelligent Assessment",
-    description: "Our AI understands context, not just keywords. Grade code, mathematics and complex answers with human-like comprehension.",
+    description: "Our system understands context, not just keywords. Grade code, mathematics and complex answers with human-like comprehension.",
   },
   {
     icon: Clock,
@@ -18,18 +18,21 @@ const features = [
   },
   {
     icon: Shield,
-    title: "Academic Integrity",
-    description: "Built-in plagiarism detection and AI-content identification ensures authentic student work evaluation.",
+    title: "Handwritten Assignments",
+    description: "Upload scanned or photographed handwritten work and let MarkingLab accurately read and grade it, just like typed submissions.",
+    comingSoon: true,
   },
   {
     icon: BarChart3,
     title: "Learning Analytics",
     description: "Track student progress, identify knowledge gaps, and generate insights to improve your teaching.",
+    comingSoon: true,
   },
   {
     icon: Puzzle,
     title: "LMS Integration",
     description: "Seamlessly connects with Canvas, Blackboard, Moodle, and other major learning management systems.",
+    comingSoon: true,
   },
 ];
 
@@ -62,6 +65,13 @@ const Features = () => {
               className="group relative bg-card rounded-2xl p-8 border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-medium"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {/* Coming Soon Badge */}
+              {feature.comingSoon && (
+                <span className="absolute top-4 right-4 bg-accent/10 text-accent text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full border border-accent/20">
+                  Coming Soon
+                </span>
+              )}
+
               {/* Icon */}
               <div className="w-14 h-14 rounded-xl accent-gradient flex items-center justify-center mb-6 group-hover:shadow-glow transition-shadow duration-300">
                 <feature.icon className="w-7 h-7 text-accent-foreground" />

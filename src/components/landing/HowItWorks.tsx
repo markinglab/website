@@ -11,19 +11,19 @@ const steps = [
     icon: Settings,
     step: "02",
     title: "Set Your Rubric",
-    description: "Define grading criteria or use our AI-assisted rubric builder. Customize weights, feedback templates, and grading scales.",
+    description: "Define grading criteria or use our rubric builder. Customize weights, feedback templates, and grading scales.",
   },
   {
     icon: Zap,
     step: "03",
-    title: "AI Grades & Reviews",
-    description: "Our AI evaluates each submission against your rubric, providing grades and detailed feedback in minutes.",
+    title: "MarkingLab Grades & Reviews",
+    description: "MarkingLab evaluates each submission against your rubric, providing grades and detailed feedback in minutes.",
   },
   {
     icon: Download,
     step: "04",
     title: "Review & Export",
-    description: "Review AI suggestions, make adjustments if needed, and export grades directly back to your LMS.",
+    description: "Review suggestions, make adjustments if needed, and export grades and feedbacks.",
   },
 ];
 
