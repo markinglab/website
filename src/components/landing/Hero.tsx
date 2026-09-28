@@ -47,9 +47,9 @@ const Hero = () => {
           <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold mt-12 mb-6 text-foreground animate-fade-in text-balance" style={{
           animationDelay: '0.1s'
         }}>
-            AI-Powered Grading
+            Less time grading,
             <span className="block mt-2">
-              That <span className="text-primary">Understands</span> Learning
+              More time teaching.
             </span>
           </h1>
 
